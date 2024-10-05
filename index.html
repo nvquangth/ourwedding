@@ -633,5 +633,28 @@
 
     <!-- Custom script for this template -->
     <script src="js/script.js"></script>
+
+    <script>
+        document.querySelector('.toggle-text').addEventListener('click', function() {
+            const bankSection = document.getElementById('bank');
+            
+            // Kiểm tra trạng thái hiện tại của phần collapse
+            if (bankSection.classList.contains('show')) {
+                // Nếu đang mở, cuộn lên trên (có thể không cần thiết)
+                window.scrollTo({
+                    top: window.scrollY - 400,
+                    behavior: 'smooth'
+                });
+            } else {
+                // Nếu đang đóng, cuộn xuống 50px sau khi mở
+                setTimeout(() => {
+                    window.scrollTo({
+                        top: window.scrollY + 400,
+                        behavior: 'smooth'
+                    });
+                }, 300); // Thời gian trễ để đảm bảo nội dung đã được mở
+            }
+        });
+    </script>
 </body>
 </html>
